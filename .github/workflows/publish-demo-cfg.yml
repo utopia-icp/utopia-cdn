@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ "main" ]
+    tags: 
+      - '*'
+
+jobs:
+  publish-demo-cfg: 
+    name: Publish demo configuration
+    runs-on: ubuntu-latest
+
+    steps:
+    - if: github.ref_type == 'tag'
+      name: Add artifacts to release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+            demo_cfg/replica.1.json5
+            demo_cfg/replica.2.json5
+            demo_cfg/replica.3.json5
+            demo_cfg/replica.4.json5
+            demo_cfg/whitelist.json
