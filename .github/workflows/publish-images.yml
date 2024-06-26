@@ -40,7 +40,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: Dockerfile.ic-prep
+          context: ic-prep
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: |
@@ -76,7 +76,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: Dockerfile.replica
+          context: replica
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: |
