@@ -24,4 +24,3 @@ jobs:
             demo_cfg/replica.2.json5
             demo_cfg/replica.3.json5
             demo_cfg/replica.4.json5
-            demo_cfg/whitelist.json
