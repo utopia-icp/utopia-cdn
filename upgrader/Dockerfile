@@ -12,6 +12,6 @@ ARG IC_COMMIT='ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6'
 
 COPY ./upgrader.sh /workspace/upgrader.sh
 RUN echo "${IC_COMMIT}" > /workspace/version.txt
-COPY ./replica-${IC_COMMIT}.tar /workspace/node.tar
+COPY ./node.tar /workspace/node.tar
 
 ENTRYPOINT ["/workspace/upgrader.sh"]

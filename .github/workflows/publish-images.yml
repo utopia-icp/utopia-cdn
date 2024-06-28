@@ -5,8 +5,8 @@ on:
     types: [published]
 
 jobs:
-  build-and-upload-images:
-    name: Build and upload Docker images
+  build-and-upload-ic-prep:
+    name: Build and upload ic-prep image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,15 +15,42 @@ jobs:
       - run: |
           cd ic-prep
           docker build -t ic-prep .
-          docker save ic-prep > ic-prep.tar
-          gzip ic-prep.tar
-          mv ic-prep.tar.gz ../ic-prep.tar.gz
-        name: Build and compress Docker images
+          docker save ic-prep > ../ic-prep.tar
+        name: Build and save Docker image
+
+      - run: gzip ic-prep.tar
+        name: Compress Docker image
 
       - uses: softprops/action-gh-release@v2
         name: Upload artifacts
         with:
           files: |
               ic-prep.tar.gz
-      
 
+  build-and-upload-upgrader:
+    name: Build and upload upgrader image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout
+        
+      - run: |
+          cd node
+          docker build -t node .
+          docker save node > ../upgrader/node.tar
+        name: Build and save inner node image
+
+      - run: |
+          cd upgrader
+          docker build -t upgrader .
+          docker save upgrader > ../upgrader.tar
+        name: Build and save Docker image
+
+      - run: gzip upgrader.tar
+        name: Compress Docker image
+
+      - uses: softprops/action-gh-release@v2
+        name: Upload artifacts
+        with:
+          files: |
+              upgrader.tar.gz
