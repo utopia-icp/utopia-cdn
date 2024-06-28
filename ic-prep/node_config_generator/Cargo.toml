@@ -1,0 +1,8 @@
+[package]
+name = "config"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ic-config = { git = "https://github.com/dfinity/ic", rev = "ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6" }
+serde_json = "1.0.118"

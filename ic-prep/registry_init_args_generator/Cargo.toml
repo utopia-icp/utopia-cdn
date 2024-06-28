@@ -1,0 +1,20 @@
+[package]
+name = "registry-init-arg"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "reg"
+path = "main.rs"
+
+[dependencies]
+anyhow = "1.0.86"
+clap = { version = "4.5.4", features = ["derive"] }
+tokio = { version = "1.37.0", features = ["full"] }
+ic-registry-transport = { git = "https://github.com/dfinity/ic.git", rev = "ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6" }
+ic-registry-proto-data-provider = { git = "https://github.com/dfinity/ic.git", rev = "ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6" }
+ic-interfaces-registry = { git = "https://github.com/dfinity/ic.git", rev = "ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6" }
+candid = "0.10.8"
+serde = { version = "1.0.203", features = ["derive"] }

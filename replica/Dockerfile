@@ -1,30 +1,36 @@
 FROM --platform=linux/amd64 ubuntu:24.04
 
-RUN \
-    apt update && apt install -y \
-        libunwind-dev
+COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/
 
-# binaries
+RUN apt update && apt install -y ca-certificates jq libunwind-dev
+
+# Replica version
+
+ARG IC_COMMIT='ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6'
+
+# Binaries
 
 ARG DFINITY_ARTIFACTS_URL='https://dfinity-download-public.s3.eu-central-1.amazonaws.com'
 
-ARG REPLICA_REF='ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6'
-ADD ${DFINITY_ARTIFACTS_URL}/ic/${REPLICA_REF}/release/replica.gz .
+ADD ${DFINITY_ARTIFACTS_URL}/ic/${IC_COMMIT}/release/replica.gz .
 RUN zcat replica.gz > /usr/bin/replica && chmod +x /usr/bin/replica && rm replica.gz
 
-ARG CANISTER_SANDBOX_REF='ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6'
-ADD ${DFINITY_ARTIFACTS_URL}/ic/${CANISTER_SANDBOX_REF}/release/canister_sandbox.gz .
+ADD ${DFINITY_ARTIFACTS_URL}/ic/${IC_COMMIT}/release/ic-https-outcalls-adapter.gz .
+RUN zcat ic-https-outcalls-adapter.gz > /usr/bin/ic-https-outcalls-adapter && chmod +x /usr/bin/ic-https-outcalls-adapter && rm ic-https-outcalls-adapter.gz
+
+ADD ${DFINITY_ARTIFACTS_URL}/ic/${IC_COMMIT}/release/canister_sandbox.gz .
 RUN zcat canister_sandbox.gz > /usr/bin/canister_sandbox && chmod +x /usr/bin/canister_sandbox && rm canister_sandbox.gz
 
-ARG SANDBOX_LAUNCHER_REF='ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6'
-ADD ${DFINITY_ARTIFACTS_URL}/ic/${SANDBOX_LAUNCHER_REF}/release/sandbox_launcher.gz .
+ADD ${DFINITY_ARTIFACTS_URL}/ic/${IC_COMMIT}/release/sandbox_launcher.gz .
 RUN zcat sandbox_launcher.gz > /usr/bin/sandbox_launcher && chmod +x /usr/bin/sandbox_launcher && rm sandbox_launcher.gz
+
+ADD ${DFINITY_ARTIFACTS_URL}/ic/${IC_COMMIT}/release/orchestrator.gz .
+RUN zcat orchestrator.gz > /usr/bin/orchestrator && chmod +x /usr/bin/orchestrator && rm orchestrator.gz
+
+# Scripts
+
+COPY ./node.sh /usr/bin/node.sh
 
 EXPOSE 8080 4100 9090 2497
 
-# Add Tini (equivalent to passing --init to `docker run` in the Docker CLI which is, however, not available in the Rust Docker library)
-ENV TINI_VERSION v0.19.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-RUN chmod +x /tini
-
-ENTRYPOINT ["/tini", "--", "replica"]
+ENTRYPOINT ["/usr/bin/node.sh"]
