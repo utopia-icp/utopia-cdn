@@ -9,20 +9,20 @@ jobs:
     name: Build and upload ic-prep image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        name: Checkout
+      - name: Checkout
+        uses: actions/checkout@v4
         
-      - run: |
+      - name: Build and save Docker image
+        run: |
           cd ic-prep
           docker build -t ic-prep .
           docker save ic-prep > ../ic-prep.tar
-        name: Build and save Docker image
 
-      - run: gzip ic-prep.tar
-        name: Compress Docker image
+      - name: Compress Docker image
+        run: gzip ic-prep.tar
 
-      - uses: softprops/action-gh-release@v2
-        name: Upload artifacts
+      - name: Upload artifacts
+        uses: softprops/action-gh-release@v2
         with:
           files: |
               ic-prep.tar.gz
@@ -31,26 +31,26 @@ jobs:
     name: Build and upload upgrader image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        name: Checkout
+      - name: Checkout
+        uses: actions/checkout@v4
         
-      - run: |
+      - name: Build and save inner node image
+        run: |
           cd node
           docker build -t node .
           docker save node > ../upgrader/node.tar
-        name: Build and save inner node image
 
-      - run: |
+      - name: Build and save Docker image
+        run: |
           cd upgrader
           docker build -t upgrader .
           docker save upgrader > ../upgrader.tar
-        name: Build and save Docker image
 
-      - run: gzip upgrader.tar
-        name: Compress Docker image
+      - name: Compress Docker image
+        run: gzip upgrader.tar
 
-      - uses: softprops/action-gh-release@v2
-        name: Upload artifacts
+      - name: Upload artifacts
+        uses: softprops/action-gh-release@v2
         with:
           files: |
               upgrader.tar.gz
