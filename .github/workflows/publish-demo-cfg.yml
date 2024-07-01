@@ -13,14 +13,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Gzip demo configuration
+      run: tar -czvf demo_cfg.tar.gz demo_cfg 
 
     - if: github.ref_type == 'tag'
       name: Add artifacts to release
       uses: softprops/action-gh-release@v2
       with:
-        files: |
-            demo_cfg/replica.1.json5
-            demo_cfg/replica.2.json5
-            demo_cfg/replica.3.json5
-            demo_cfg/replica.4.json5
+        files: demo_cfg.tar.gz
