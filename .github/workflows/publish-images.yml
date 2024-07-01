@@ -37,8 +37,8 @@ jobs:
       - name: Build and save inner node image
         run: |
           cd node
-          docker build -t node .
-          docker save node > ../upgrader/node.tar
+          docker build -t node-container .
+          docker save node-container > ../upgrader/node.tar
 
       - name: Build and save Docker image
         run: |
