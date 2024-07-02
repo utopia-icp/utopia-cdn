@@ -27,6 +27,28 @@ jobs:
           files: |
               ic-prep.tar.gz
 
+  build-and-upload-gateway:
+    name: Build and upload gateway image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Build and save Docker image
+        run: |
+          cd gateway
+          docker build -t gateway .
+          docker save gateway > ../gateway.tar
+
+      - name: Compress Docker image
+        run: gzip gateway.tar
+
+      - name: Upload artifacts
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+              gateway.tar.gz
+
   build-and-upload-upgrader:
     name: Build and upload upgrader image
     runs-on: ubuntu-latest

@@ -6,7 +6,7 @@ RUN apt update && apt install -y ca-certificates jq libunwind-dev
 
 # Replica version
 
-ARG IC_COMMIT='b9a0f18dd5d6019e3241f205de797bca0d9cc3f8'
+ARG IC_COMMIT='ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6'
 
 # Binaries
 
