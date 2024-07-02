@@ -23,7 +23,7 @@ RUN cd /workspace/registry_init_args_generator && cargo build --release
 
 # Replica version
 
-ARG IC_COMMIT='ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6'
+ARG IC_COMMIT='b9a0f18dd5d6019e3241f205de797bca0d9cc3f8'
 
 RUN echo ${IC_COMMIT} > /workspace/version.txt
 
