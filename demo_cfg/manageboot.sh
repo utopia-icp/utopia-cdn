@@ -50,7 +50,7 @@ case "${ACTION}" in
         # Get the sha256 hash of the upgrader container (NOT of its tarball)
         # and persist it in this container's local directory
         # for a latter invokation of the `upgrade-commit` command below.
-        tar -xf "${UPGRADER_IMG}"
+        tar -xzf "${UPGRADER_IMG}"
         UPGRADER_SHA256="$(jq -r .[0].Config manifest.json  | sed "s/^blobs\/sha256\//sha256:/")"
         echo -n "${UPGRADER_SHA256}" > /workspace/upgrader_sha256.txt
         ;;
