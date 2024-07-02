@@ -37,7 +37,7 @@ jobs:
       - name: Build and save Docker image
         run: |
           cd gateway
-          docker build -t gateway .
+          docker build -t gateway --build-arg IC_COMMIT=cf0a12b7b3971b204d06efc65690b23e58b8c481 . 
           docker save gateway > ../gateway.tar
 
       - name: Compress Docker image
