@@ -5,11 +5,11 @@ on:
     types: [published]
 
 env:
-  IC_COMMIT: ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6
+  IC_COMMIT: b9a0f18dd5d6019e3241f205de797bca0d9cc3f8
 
 jobs:
   build-and-upload-ic-prep:
-    name: Build and upload ic-prep image
+    name: Build ic-prep image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,7 +31,7 @@ jobs:
               ic-prep.tar.gz
 
   build-and-upload-gateway:
-    name: Build and upload gateway image
+    name: Build gateway image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -53,7 +53,7 @@ jobs:
               gateway.tar.gz
 
   build-and-upload-upgrader:
-    name: Build and upload upgrader image and demo configuration
+    name: Build upgrader image and demo_cfg
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
