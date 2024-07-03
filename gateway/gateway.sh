@@ -20,7 +20,7 @@ done
 
 # Start an HTTP gateway at port 8000
 
-curl -X POST -H "Content-Type: application/json" http://localhost:7000/http_gateway -d "{\"listen_at\": 8000, \"forward_to\": {\"Replica\": "${REPLICA_URL}"}, \"domain\": \"localhost\"}"
+curl -X POST -H "Content-Type: application/json" http://localhost:8000/http_gateway -d "{\"listen_at\": 8080, \"forward_to\": {\"Replica\": \"${REPLICA_URL}\"}, \"domain\": \"localhost\"}"
 
 # Block until the HTTP gateway container is killed
 
