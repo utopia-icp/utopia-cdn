@@ -1,9 +1,10 @@
 {
+    "latest": "utopia@0.1.0-demo",
     "utopia@0.1.0-demo": {
         "name": "replica",
         "version": "0.1.0-demo",
-        "url": null,
-        "hash": null,
+        "url": "",
+        "hash": "",
         "dependencies": [
             "ic_prep@0.1.0-demo",
             "upgrader@0.1.0-demo",
@@ -19,56 +20,56 @@
         "name": "demo_cfg",
         "version": "0.1.0-demo",
         "url": "https://github.com/utopia-icp/utopia-cdn/releases/0.1.0-demo/demo_cfg.tar.gz",
-        "hash": null,
+        "hash": "",
         "dependencies": []
     },
     "gateway@0.1.0-demo": {
         "name": "gateway",
         "version": "0.1.0-demo",
         "url": "https://github.com/utopia-icp/utopia-cdn/releases/0.1.0-demo/gateway.tar.gz",
-        "hash": null,
+        "hash": "",
         "dependencies": []
     },
     "upgrader@0.1.0-demo": {
         "name": "upgrader",
         "version": "0.1.0-demo",
         "url": "https://github.com/utopia-icp/utopia-cdn/releases/0.1.0-demo/upgrader.tar.gz",
-        "hash": null,
+        "hash": "",
         "dependencies": []
     },
     "ic_prep@0.0.0": {
         "name": "ic_prep",
         "version": "0.1.0-demo",
         "url": "https://github.com/utopia-icp/utopia-cdn/releases/0.1.0-demo/ic_prep.tar.gz",
-        "hash": null,
+        "hash": "",
         "dependencies": []
     },
     "registry@0.0.0": {
         "name": "registry",
         "version": "0.0.0",
         "url": "https://download.dfinity.systems/ic/e94d5e28a76f8b9efc2d9959944410807498eb06/canisters/registry-canister.wasm.gz",
-        "hash": null,
+        "hash": "",
         "dependencies": []
     },
     "orbit_station@0.0.0": {
         "name": "orbit_station",
         "version": "0.0.0",
         "url": "https://github.com/dfinity/orbit/releases/download/%40orbit%2Fstation-v0.0.2-alpha.4/station.wasm.gz",
-        "hash": null,
+        "hash": "",
         "dependencies": []
     },
     "orbit_upgrader@0.0.0": {
         "name": "orbit_upgrader",
         "version": "0.0.0",
         "url": "https://github.com/dfinity/orbit/releases/download/%40orbit%2Fupgrader-v0.0.2-alpha.2/upgrader.wasm.gz",
-        "hash": null,
+        "hash": "",
         "dependencies": []
     },
     "internet_identity@0.0.0": {
         "name": "internet_identity",
         "version": "0.0.0",
         "url": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
-        "hash": null,
+        "hash": "",
         "dependencies": []
     }
 }
