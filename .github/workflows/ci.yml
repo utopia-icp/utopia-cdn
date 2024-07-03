@@ -5,7 +5,7 @@ on:
     types: [published]
 
 env:
-  IC_COMMIT: b9a0f18dd5d6019e3241f205de797bca0d9cc3f8
+  IC_COMMIT: ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6
 
 jobs:
   build-and-upload-ic-prep:
@@ -74,11 +74,11 @@ jobs:
       - name: Compress Docker image
         run: gzip upgrader.tar
       
-      - name: Add upgrader sha256sum to demo_cfg
-        run: sha256sum upgrader.tar.gz | cut -d ' ' -f 1 > demo_cfg/upgrader-sha256sum.txt
+      - name: Write upgrader sha256sum to file
+        run: sha256sum upgrader.tar.gz | cut -d ' ' -f 1 > upgrader-sha256sum.txt
 
-      - name: Add IC_COMMIT to demo_cfg
-        run: echo $IC_COMMIT > demo_cfg/ic-commit.txt
+      - name: Write IC_COMMIT to file
+        run: echo $IC_COMMIT > ic-commit.txt
 
       - name: Gzip demo configuration
         run: tar -czvf demo_cfg.tar.gz demo_cfg 
@@ -89,3 +89,5 @@ jobs:
           files: |
               upgrader.tar.gz
               demo_cfg.tar.gz
+              upgrader-sha256sum.txt
+              ic-commit.txt
