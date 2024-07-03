@@ -4,6 +4,9 @@ on:
   release:
     types: [published]
 
+env:
+  IC_COMMIT: ec35ebd252d4ffb151d2cfceba3a86c4fb87c6d6
+
 jobs:
   build-and-upload-ic-prep:
     name: Build and upload ic-prep image
@@ -15,7 +18,7 @@ jobs:
       - name: Build and save Docker image
         run: |
           cd ic-prep
-          docker build -t ic-prep .
+          docker build -t ic-prep --build-arg IC_COMMIT=$IC_COMMIT .
           docker save ic-prep > ../ic-prep.tar
 
       - name: Compress Docker image
@@ -50,7 +53,7 @@ jobs:
               gateway.tar.gz
 
   build-and-upload-upgrader:
-    name: Build and upload upgrader image
+    name: Build and upload upgrader image and demo configuration
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -59,20 +62,30 @@ jobs:
       - name: Build and save inner node image
         run: |
           cd node
-          docker build -t node-container .
+          docker build -t node-container --build-arg IC_COMMIT=$IC_COMMIT .
           docker save node-container > ../upgrader/node.tar
 
       - name: Build and save Docker image
         run: |
           cd upgrader
-          docker build -t upgrader .
+          docker build -t upgrader --build-arg IC_COMMIT=$IC_COMMIT .
           docker save upgrader > ../upgrader.tar
 
       - name: Compress Docker image
         run: gzip upgrader.tar
+      
+      - name: Add upgrader sha256sum to demo_cfg
+        run: sha256sum upgrader.tar.gz | cut -d ' ' -f 1 > demo_cfg/upgrader-sha256sum.txt
+
+      - name: Add IC_COMMIT to demo_cfg
+        run: echo $IC_COMMIT > demo_cfg/ic-commit.txt
+
+      - name: Gzip demo configuration
+        run: tar -czvf demo_cfg.tar.gz demo_cfg 
 
       - name: Upload artifacts
         uses: softprops/action-gh-release@v2
         with:
           files: |
               upgrader.tar.gz
+              demo_cfg.tar.gz
