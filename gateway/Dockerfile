@@ -17,6 +17,6 @@ RUN zcat pocket-ic.gz > /usr/local/bin/pocket-ic && chmod +x /usr/local/bin/pock
 
 COPY ./gateway.sh /usr/local/bin/gateway.sh
 
-EXPOSE 8080
+EXPOSE 8000
 
 ENTRYPOINT [ "/usr/local/bin/gateway.sh" ]
