@@ -55,7 +55,7 @@
         "hash": "",
         "dependencies": []
     },
-    "ic_prep@0.0.0": {
+    "ic_prep@0.1.0-demo": {
         "name": "ic_prep",
         "version": "0.1.0-demo",
         "url": "https://github.com/utopia-icp/utopia-cdn/releases/0.1.0-demo/ic_prep.tar.gz",
