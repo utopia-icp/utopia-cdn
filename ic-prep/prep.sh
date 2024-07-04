@@ -16,7 +16,6 @@ ic-prep --working-dir /out \
       --replica-version "$(cat /workspace/version.txt)" \
       --provisional-whitelist /whitelist.json \
       --allow-empty-update-image \
-      # --dkg-interval-length 20 \
       "$@"
 
 # Copy the registry local store created by ic-prep into the individual nodes' directories so that
