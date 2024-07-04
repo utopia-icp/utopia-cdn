@@ -28,12 +28,10 @@ rm -rf /out/ic_registry_local_store
 
 # Generate the replica config
 
-cd /workspace/node_config_generator
 for ID in 1 2 3 4; do \
-  cargo run --release > "/out/node-${ID}/replica.json5"
+  config > "/out/node-${ID}/replica.json5"
 done
 
 # Generate the initial payload for the registry canister
 
-cd /workspace/registry_init_args_generator
-cargo run --release -- --registry "/out/registry.proto" --out /out/registry_init.bin
+registry-init-arg --registry "/out/registry.proto" --out /out/registry_init.bin

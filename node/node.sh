@@ -15,11 +15,11 @@ echo '{
     "Path": "/workspace/ic-https-outcalls-adapter/socket"
   }
 }' > /workspace/ic-https-outcalls-adapter/ic-canister-http-config.json
-/usr/bin/ic-https-outcalls-adapter /workspace/ic-https-outcalls-adapter/ic-canister-http-config.json &
+ic-https-outcalls-adapter /workspace/ic-https-outcalls-adapter/ic-canister-http-config.json &
 
 # Orchestrator (starting replica internally)
 
-/usr/bin/orchestrator --ic-binary-directory /usr/bin --replica-binary-dir /usr/bin \
+orchestrator --ic-binary-directory /usr/local/bin --replica-binary-dir /workspace \
   --cup-dir /workspace/node \
   --replica-config-file /workspace/node/replica.json5 \
   --version-file /workspace/node/version.txt \
