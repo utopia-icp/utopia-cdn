@@ -106,6 +106,20 @@
         "hash": "",
         "dependencies": []
     },
+    "ic_commit@0.1.0-demo": {
+        "name": "ic_commit",
+        "version": "0.1.0-demo",
+        "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.0-demo/ic-commit.txt",
+        "hash": "",
+        "dependencies": []
+    },
+    "ic_upgrader_sha256sum@0.1.0-demo": {
+        "name": "ic_upgrader_sha256sum",
+        "version": "0.1.0-demo",
+        "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.0-demo/upgrader-sha256sum.txt",
+        "hash": "",
+        "dependencies": []
+    },
     "ic_commit@0.1.1-demo": {
         "name": "ic_commit",
         "version": "0.1.1-demo",
