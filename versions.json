@@ -13,7 +13,9 @@
             "registry@0.0.0",
             "orbit_station@0.0.0",
             "orbit_upgrader@0.0.0",
-            "internet_identity@0.0.0"
+            "internet_identity@0.0.0",
+            "ic_commit@0.1.0-demo",
+            "ic_upgrader_sha256sum@0.1.0-demo"
         ]
     },
     "utopia@0.1.1-demo": {
