@@ -11,9 +11,9 @@ REPLICA_URL="${1}"
 
 # PocketIC server: bind the server at port 8000
 
-rm -f pocket-ic.port
-pocket-ic --port 8000 --ttl 2592000 --port-file pocket-ic.port &
-while [ ! -f pocket-ic.port ]
+rm -f pocket-ic.ready
+pocket-ic --port 8000 --ttl 2592000 --ready-file pocket-ic.ready &
+while [ ! -f pocket-ic.ready ]
 do
   sleep 1
 done
