@@ -200,5 +200,5 @@
         "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.2-demo/upgrader-sha256sum.txt",
         "hash": "",
         "dependencies": []
-    },
+    }
 }
