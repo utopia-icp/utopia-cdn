@@ -29,6 +29,7 @@ RUN zcat orchestrator.gz > /usr/local/bin/orchestrator && chmod +x /usr/local/bi
 
 # Scripts
 
+COPY ./manageboot.sh /usr/local/bin/manageboot.sh
 COPY ./node.sh /usr/local/bin/node.sh
 
 EXPOSE 8080 4100 9090 2497
