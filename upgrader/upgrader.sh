@@ -54,7 +54,6 @@ docker run \
       --ip6 "${IP6_NODE}" \
       -w /workspace \
       -v "${OUT_DIR}/${CONTAINER_NAME}:/workspace/node" \
-      -v "${CFG_DIR}/manageboot.sh:/usr/local/bin/manageboot.sh" \
       -v "${CFG_DIR}/${CONTAINER_NAME}:/cfg" \
       -v "/var/run/docker.sock:/var/run/docker.sock" \
       "${NODE_SHA256}"
