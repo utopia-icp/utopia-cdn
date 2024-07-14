@@ -120,7 +120,7 @@
     "internet_identity@0.0.0": {
         "name": "internet_identity",
         "version": "0.0.0",
-        "url": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
+        "url": "https://github.com/dfinity/internet-identity/releases/download/release-2024-07-05/internet_identity_dev.wasm.gz",
         "hash": "",
         "dependencies": []
     },
