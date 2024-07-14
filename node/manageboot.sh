@@ -68,7 +68,6 @@ case "${ACTION}" in
         UPGRADER_SHA256="$(cat /workspace/upgrader_sha256.txt)"
         docker run \
             --rm --init -d \
-            --network "$(cat /cfg/network.txt)" --ip6 "$(cat /cfg/ip6-upgrader.txt)" \
             -v "$(cat /cfg/cfg_dir.txt)/$(cat /cfg/node.txt)/node.txt:/workspace/old_node.txt" \
             -v "$(cat /cfg/cfg_dir.txt)/$(cat /cfg/node.txt)/node.txt:/workspace/node.txt" \
             -v "$(cat /cfg/cfg_dir.txt):/cfg" \

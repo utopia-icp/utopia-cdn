@@ -10,25 +10,28 @@ set -e
 
 rm -rf /out/*
 
+NUM_NODES="$1"
+IC_PREP_ARGS="${@:2}"
+
 # Run ic-prep
 
 ic-prep --working-dir /out \
       --replica-version "$(cat /workspace/version.txt)" \
       --provisional-whitelist /whitelist.json \
       --allow-empty-update-image \
-      "$@"
+      "$IC_PREP_ARGS"
 
 # Copy the registry local store created by ic-prep into the individual nodes' directories so that
 # every node has its own registry local store to which the node's orchestrator writes exclusively.
 
-for ID in 1 2 3 4; do \
+for ID in $(seq 0 $(($NUM_NODES-1))); do \
   cp -r "/out/ic_registry_local_store" "/out/node-${ID}/ic_registry_local_store"
 done
 rm -rf /out/ic_registry_local_store
 
 # Generate the replica config
 
-for ID in 1 2 3 4; do \
+for ID in $(seq 0 $(($NUM_NODES-1))); do \
   config > "/out/node-${ID}/replica.json5"
 done
 
