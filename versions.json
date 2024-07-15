@@ -1,21 +1,38 @@
 {
-    "latest": "utopia@0.1.2-demo",
-    "utopia@0.1.0-demo": {
+    "latest": "utopia@0.1.3-remote.0",
+    "utopia@0.1.3-remote.0": {
         "name": "replica",
-        "version": "0.1.0-demo",
+        "version": "0.1.3-remote.0",
         "url": "",
         "hash": "",
         "dependencies": [
-            "ic_prep@0.1.0-demo",
-            "upgrader@0.1.0-demo",
-            "gateway@0.1.0-demo",
-            "demo_cfg@0.1.0-demo",
+            "ic_prep@0.1.3-remote.0",
+            "upgrader@0.1.3-remote.0",
+            "gateway@0.1.3-remote.0",
+            "registry@0.1.3-remote.0",
+            "orbit_station@0.0.0",
+            "orbit_upgrader@0.0.0",
+            "internet_identity@0.0.0",
+            "ic_commit@0.1.3-remote.0",
+            "ic_upgrader_sha256sum@0.1.3-remote.0"
+        ]
+    },
+    "utopia@0.1.2-demo": {
+        "name": "replica",
+        "version": "0.1.2-demo",
+        "url": "",
+        "hash": "",
+        "dependencies": [
+            "ic_prep@0.1.2-demo",
+            "upgrader@0.1.2-demo",
+            "gateway@0.1.2-demo",
+            "demo_cfg@0.1.2-demo",
             "registry@0.0.0",
             "orbit_station@0.0.0",
             "orbit_upgrader@0.0.0",
             "internet_identity@0.0.0",
-            "ic_commit@0.1.0-demo",
-            "ic_upgrader_sha256sum@0.1.0-demo"
+            "ic_commit@0.1.2-demo",
+            "ic_upgrader_sha256sum@0.1.2-demo"
         ]
     },
     "utopia@0.1.1-demo": {
@@ -36,22 +53,22 @@
             "ic_upgrader_sha256sum@0.1.1-demo"
         ]
     },
-    "utopia@0.1.2-demo": {
+    "utopia@0.1.0-demo": {
         "name": "replica",
-        "version": "0.1.2-demo",
+        "version": "0.1.0-demo",
         "url": "",
         "hash": "",
         "dependencies": [
-            "ic_prep@0.1.2-demo",
-            "upgrader@0.1.2-demo",
-            "gateway@0.1.2-demo",
-            "demo_cfg@0.1.2-demo",
+            "ic_prep@0.1.0-demo",
+            "upgrader@0.1.0-demo",
+            "gateway@0.1.0-demo",
+            "demo_cfg@0.1.0-demo",
             "registry@0.0.0",
             "orbit_station@0.0.0",
             "orbit_upgrader@0.0.0",
             "internet_identity@0.0.0",
-            "ic_commit@0.1.2-demo",
-            "ic_upgrader_sha256sum@0.1.2-demo"
+            "ic_commit@0.1.0-demo",
+            "ic_upgrader_sha256sum@0.1.0-demo"
         ]
     },
     "demo_cfg@0.1.0-demo": {
