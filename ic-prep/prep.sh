@@ -19,7 +19,7 @@ ic-prep --working-dir /out \
       --replica-version "$(cat /workspace/version.txt)" \
       --provisional-whitelist /whitelist.json \
       --allow-empty-update-image \
-      "$IC_PREP_ARGS"
+      $IC_PREP_ARGS
 
 # Copy the registry local store created by ic-prep into the individual nodes' directories so that
 # every node has its own registry local store to which the node's orchestrator writes exclusively.
