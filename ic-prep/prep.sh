@@ -34,4 +34,4 @@ registry-init-arg --registry "/out/registry.proto" --out /out/registry_init.bin
 
 # Change file permissions so that the CLI can move these files to the remote hosts. 
 # It must set less permissive permissions once on the host. 
-chmod -r 777 out/
+chmod 777 -R /out/
