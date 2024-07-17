@@ -21,7 +21,7 @@ ic-prep --working-dir /out \
 # Copy the registry local store created by ic-prep into the individual nodes' directories so that
 # every node has its own registry local store to which the node's orchestrator writes exclusively.
 
-for NODE_DIR in $(find ./out -maxdepth 1 -mindepth 1 -type d -printf '%f\n'); do
+for NODE_DIR in $(find /out -maxdepth 1 -mindepth 1 -type d -printf '%f\n'); do
   cp -r "/out/ic_registry_local_store" "/out/${NODE_DIR}/ic_registry_local_store"
   # Generate the replica config
   config > "/out/${NODE_DIR}/replica.json5"
