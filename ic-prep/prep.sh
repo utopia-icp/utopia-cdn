@@ -10,30 +10,23 @@ set -e
 
 rm -rf /out/*
 
-NUM_NODES="$1"
-IC_PREP_ARGS="${@:2}"
-
 # Run ic-prep
 
 ic-prep --working-dir /out \
       --replica-version "$(cat /workspace/version.txt)" \
       --provisional-whitelist /whitelist.json \
       --allow-empty-update-image \
-      "$IC_PREP_ARGS"
+      "$@"
 
 # Copy the registry local store created by ic-prep into the individual nodes' directories so that
 # every node has its own registry local store to which the node's orchestrator writes exclusively.
 
-for ID in $(seq 0 $(($NUM_NODES-1))); do \
-  cp -r "/out/ic_registry_local_store" "/out/node-${ID}/ic_registry_local_store"
+for NODE_DIR in $(find ./out -maxdepth 1 -mindepth 1 -type d -printf '%f\n'); do
+  cp -r "/out/ic_registry_local_store" "/out/${NODE_DIR}/ic_registry_local_store"
+  # Generate the replica config
+  config > "/out/${NODE_DIR}/replica.json5"
 done
 rm -rf /out/ic_registry_local_store
-
-# Generate the replica config
-
-for ID in $(seq 0 $(($NUM_NODES-1))); do \
-  config > "/out/node-${ID}/replica.json5"
-done
 
 # Generate the initial payload for the registry canister
 
