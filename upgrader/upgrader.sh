@@ -48,7 +48,7 @@ docker run \
       --name "${CONTAINER_NAME}" \
       --network host \
       -w /workspace \
-      -v "${OUT_DIR}/${CONTAINER_NAME}:/workspace/node" \
+      -v "${OUT_DIR}:/workspace/node" \
       -v "${CFG_DIR}/${CONTAINER_NAME}:/cfg" \
       -v "/var/run/docker.sock:/var/run/docker.sock" \
       "${NODE_SHA256}"
