@@ -242,7 +242,7 @@
     "management@0.1.0-demo": {
         "name": "management",
         "version": "0.1.0-demo",
-        "url": "https://github.com/utopia-icp/utopia/releases/download/0.1.0-demo/management.wasm",
+        "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.0-demo/management.wasm",
         "hash": "",
         "dependencies": []
     }
