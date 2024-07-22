@@ -32,6 +32,4 @@ rm -rf /out/ic_registry_local_store
 
 registry-init-arg --registry "/out/registry.proto" --out /out/registry_init.bin
 
-# Change file permissions so that the CLI can move these files to the remote hosts. 
-# It must set less permissive permissions once on the host. 
-chmod 777 -R /out/
+chmod 770 -R /out/
