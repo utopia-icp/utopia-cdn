@@ -12,7 +12,7 @@ OUT_DIR="$(cat /cfg/${CONTAINER_NAME}/out_dir.txt)"
 CFG_DIR="$(cat /cfg/${CONTAINER_NAME}/cfg_dir.txt)"
 
 # Make permissions more restrictive
-chmod o-rwx -R "${OUT_DIR}"
+chmod o-rwx -R "${OUT_DIR}/${CONTAINER_NAME}"
 
 # Stop the old node container if one exists
 
