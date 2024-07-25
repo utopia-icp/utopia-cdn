@@ -15,9 +15,9 @@ CFG_DIR="$(cat /cfg/${CONTAINER_NAME}/cfg_dir.txt)"
 chmod o-rwx -R "/out/${CONTAINER_NAME}"
 
 # If there is a docker.config file, we are in local mode and need its contents
-if [ -f /cfg/docker.config ] 
+if [ -f "/cfg/${CONTAINER_NAME}/docker.config" ] 
 then
-  . /cfg/docker.config
+  . "/cfg/${CONTAINER_NAME}/docker.config"
   NETWORK_ARGS="-p ${PORT}:8080 --network ${NETWORK_NAME} --ip6 ${IPV6_NODE}"
 else 
   NETWORK_ARGS="--network host"
