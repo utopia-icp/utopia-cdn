@@ -11,6 +11,9 @@ CONTAINER_NAME="$(cat /workspace/node.txt)"
 OUT_DIR="$(cat /cfg/${CONTAINER_NAME}/out_dir.txt)"
 CFG_DIR="$(cat /cfg/${CONTAINER_NAME}/cfg_dir.txt)"
 
+# Make permissions more restrictive
+sudo chmod o-rwx -R "${OUT_DIR}"
+
 # Stop the old node container if one exists
 
 if [ -f "/workspace/old_node.txt" ]
