@@ -11,6 +11,10 @@ CONTAINER_NAME="$(cat /workspace/node.txt)"
 OUT_DIR="$(cat /cfg/${CONTAINER_NAME}/out_dir.txt)"
 CFG_DIR="$(cat /cfg/${CONTAINER_NAME}/cfg_dir.txt)"
 
+echo "${OUT_DIR}"
+echo "${CFG_DIR}"
+echo "$(ls ${OUT_DIR})"
+echo "$(ls ${CFG_DIR})"
 # Make permissions more restrictive
 chmod o-rwx -R "${OUT_DIR}/${CONTAINER_NAME}"
 
