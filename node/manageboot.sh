@@ -61,6 +61,15 @@ case "${ACTION}" in
             exit 1
         fi
 
+        # If there is a docker.config file, we are in local mode and need its contents
+        if [ -f /cfg/docker.config ] 
+        then
+        . /cfg/docker.config
+        NETWORK_ARGS="--network ${NETWORK_NAME} --ip6 ${IPV6_UPGRADER}"
+        else 
+        NETWORK_ARGS=""
+        fi
+
         # Starting the upgrader container that will in turn stop this node container and
         # start a new node container with an upgraded replica version.
         # We mount this node container's name into a separate file so that the upgrader container
@@ -68,6 +77,7 @@ case "${ACTION}" in
         UPGRADER_SHA256="$(cat /workspace/upgrader_sha256.txt)"
         docker run \
             --rm --init -d \
+            "${NETWORK_ARGS}" \
             -v "$(cat /cfg/cfg_dir.txt)/$(cat /cfg/node.txt)/node.txt:/workspace/old_node.txt" \
             -v "$(cat /cfg/cfg_dir.txt)/$(cat /cfg/node.txt)/node.txt:/workspace/node.txt" \
             -v "$(cat /cfg/cfg_dir.txt):/cfg" \

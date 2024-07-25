@@ -14,6 +14,15 @@ CFG_DIR="$(cat /cfg/${CONTAINER_NAME}/cfg_dir.txt)"
 # Make permissions more restrictive
 chmod o-rwx -R "/out/${CONTAINER_NAME}"
 
+# If there is a docker.config file, we are in local mode and need its contents
+if [ -f /cfg/docker.config ] 
+then
+  . /cfg/docker.config
+  NETWORK_ARGS="-p ${PORT}:8080 --network ${NETWORK_NAME} --ip6 ${IPV6_NODE}"
+else 
+  NETWORK_ARGS="--network host"
+fi
+
 # Stop the old node container if one exists
 
 if [ -f "/workspace/old_node.txt" ]
@@ -49,7 +58,7 @@ cp /workspace/version.txt "/out/${CONTAINER_NAME}/version.txt"
 docker run \
       --init -d \
       --name "${CONTAINER_NAME}" \
-      --network host \
+      "${NETWORK_ARGS}" \
       -w /workspace \
       -v "${OUT_DIR}/${CONTAINER_NAME}:/workspace/node" \
       -v "${CFG_DIR}/${CONTAINER_NAME}:/cfg" \
