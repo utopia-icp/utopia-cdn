@@ -58,7 +58,7 @@ cp /workspace/version.txt "/out/${CONTAINER_NAME}/version.txt"
 docker run \
       --init -d \
       --name "${CONTAINER_NAME}" \
-      "${NETWORK_ARGS}" \
+      ${NETWORK_ARGS} \
       -w /workspace \
       -v "${OUT_DIR}/${CONTAINER_NAME}:/workspace/node" \
       -v "${CFG_DIR}/${CONTAINER_NAME}:/cfg" \
