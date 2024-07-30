@@ -1,5 +1,22 @@
 {
-    "latest": "utopia@0.1.3-remote.0",
+    "latest": "utopia@0.1.3-remote.1",
+    "utopia@0.1.3-remote.1": {
+        "name": "replica",
+        "version": "0.1.3-remote.1",
+        "url": "",
+        "hash": "",
+        "dependencies": [
+            "ic_prep@0.1.3-remote.1",
+            "upgrader@0.1.3-remote.1",
+            "gateway@0.1.2-demo",
+            "registry@0.0.0",
+            "orbit_station@0.0.0",
+            "orbit_upgrader@0.0.0",
+            "internet_identity@0.0.0",
+            "ic_commit@0.1.1-demo",
+            "ic_upgrader_sha256sum@0.1.3-remote.1"
+        ]
+    },
     "utopia@0.1.3-remote.0": {
         "name": "replica",
         "version": "0.1.3-remote.0",
@@ -204,6 +221,13 @@
         "hash": "",
         "dependencies": []
     },
+    "upgrader@0.1.3-remote.1": {
+        "name": "upgrader",
+        "version": "0.1.3-remote.1",
+        "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.3-remote.1/upgrader.tar.gz",
+        "hash": "",
+        "dependencies": []
+    },
     "ic_prep@0.1.2-demo": {
         "name": "ic_prep",
         "version": "0.1.2-demo",
@@ -215,6 +239,13 @@
         "name": "ic_prep",
         "version": "0.1.3-remote.0",
         "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.3-remote.0/ic-prep.tar.gz",
+        "hash": "",
+        "dependencies": []
+    },
+    "ic_prep@0.1.3-remote.1": {
+        "name": "ic_prep",
+        "version": "0.1.3-remote.1",
+        "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.3-remote.1/ic-prep.tar.gz",
         "hash": "",
         "dependencies": []
     },
@@ -236,6 +267,13 @@
         "name": "ic_upgrader_sha256sum",
         "version": "0.1.3-remote.0",
         "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.3-remote.0/upgrader-sha256sum.txt",
+        "hash": "",
+        "dependencies": []
+    },
+    "ic_upgrader_sha256sum@0.1.3-remote.1": {
+        "name": "ic_upgrader_sha256sum",
+        "version": "0.1.3-remote.1",
+        "url": "https://github.com/utopia-icp/utopia-cdn/releases/download/0.1.3-remote.1/upgrader-sha256sum.txt",
         "hash": "",
         "dependencies": []
     }
