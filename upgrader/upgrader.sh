@@ -12,7 +12,7 @@ OUT_DIR="$(cat /cfg/${CONTAINER_NAME}/out_dir.txt)"
 CFG_DIR="$(cat /cfg/${CONTAINER_NAME}/cfg_dir.txt)"
 
 # Make permissions more restrictive
-chmod o-rwx -R "${OUT_DIR}/${CONTAINER_NAME}"
+# chmod o-rwx -R "/out/${CONTAINER_NAME}"
 
 # If there is a docker.config file, we are in local mode and need its contents
 if [ -f "/cfg/${CONTAINER_NAME}/docker.config" ] 
