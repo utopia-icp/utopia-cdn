@@ -76,7 +76,7 @@ case "${ACTION}" in
         # can uniquely determine the old node container's name.
         UPGRADER_SHA256="$(cat /workspace/upgrader_sha256.txt)"
         docker run \
-            --rm --init -d \
+            --init -d \
             ${NETWORK_ARGS} \
             -v "$(cat /cfg/cfg_dir.txt)/$(cat /cfg/node.txt)/node.txt:/workspace/old_node.txt" \
             -v "$(cat /cfg/cfg_dir.txt)/$(cat /cfg/node.txt)/node.txt:/workspace/node.txt" \
