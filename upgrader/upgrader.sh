@@ -51,7 +51,7 @@ NODE_SHA256="$(jq -r .[0].Config manifest.json | sed "s/^blobs\/sha256\//sha256:
 # Persist the new replica version in a version file shared with the host
 # to be picked up by the new node container.
 
-cp /workspace/version.txt "/out/${CONTAINER_NAME}/version.txt"
+cp /workspace/version.txt "/out/version.txt"
 
 # Start the new node container with an upgraded replica version.
 
