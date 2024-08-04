@@ -2,6 +2,9 @@
 
 set -e
 
+# Make permissions more restrictive
+chmod o-rwx -R /workspace/node
+
 # This is the entry point of the node container (called by the docker daemon when starting the node container).
 # It starts all the services of the node:
 #  - orchestrator starting replica internally;
